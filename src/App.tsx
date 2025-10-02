@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import InputComponent from "./InputComponent";
+import Label from "./Label";
+import SelectComponent from "./SelectComponent";
+import ButtonSubmit from "./ButtonSubmit";
+import "./MyCss.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form action="">
+        <Label text="Requesting a loan" />
+        <hr />
+        <Label text="Name" />
+        <InputComponent type="text" minLength={5} maxLength={10} />
+
+        <Label text="Phone Number" />
+        <InputComponent type="text" maxLength={10} />
+        <Label text="Age" />
+        <InputComponent type="number" min={2} max={3} />
+        <Label text="Are you an employee" />
+        <InputComponent type="checkbox" />
+        <Label text="Your salary" />
+        <SelectComponent options={["1000$", "2000$", "3000$"]} />
+        <ButtonSubmit text="Submit" />
+      </form>
     </div>
   );
 }
