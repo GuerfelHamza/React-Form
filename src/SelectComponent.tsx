@@ -1,8 +1,17 @@
-export default function SelectComponent(props: { options: string[] }) {
+import React from "react";
+
+interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  options: string[];
+}
+
+export default function SelectComponent({ options, ...rest }: SelectProps) {
   return (
-    <select>
-      {props.options.map((option) => (
-        <option>{option}</option>
+    <select {...rest} className="border rounded px-2 py-1 w-full">
+      <option value="">--Choisir--</option>
+      {options.map((opt, i) => (
+        <option key={i} value={opt}>
+          {opt}
+        </option>
       ))}
     </select>
   );
